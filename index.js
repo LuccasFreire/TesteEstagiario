@@ -7,12 +7,18 @@ const hidediv = document.getElementById("hide");
 $("#form").validate({
   rules: {
     nomeinput: "required",
-    emailinput: "required",
+    emailinput: {
+      required: true,
+      email: true,
+    },
     senhainput: "required",
   },
   messages: {
     nomeinput: "Por favor, digite seu nome!",
-    emailinput: "Por favor, digite seu email!",
+    emailinput: {
+      required: "Por favor, digite seu email!",
+      email: "Por favor, digite um email valido, ex: email@gmail.com",
+    },
     senhainput: "Por favor, digite sua senha!",
   },
   submitHandler: function (form, event) {
